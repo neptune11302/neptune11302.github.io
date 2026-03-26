@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陈星尧 | 个人主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7fc;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            padding: 30px 40px;
+        }
+        .lang-switch {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        button {
+            background: #0077b6;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #023e8a;
+        }
+        h1 {
+            color: #023e8a;
+            margin-bottom: 10px;
+        }
+        h2 {
+            border-left: 5px solid #0077b6;
+            padding-left: 15px;
+            margin: 25px 0 15px 0;
+            color: #023e8a;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            background: #e9f5ff;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        .info-item {
+            font-size: 16px;
+        }
+        .info-item strong {
+            color: #0077b6;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+        .skill-tag {
+            background: #e0f0ff;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .education-item {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .date {
+            font-size: 14px;
+            color: #666;
+            margin-top: 30px;
+            text-align: right;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        a {
+            color: #0077b6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="lang-switch">
+        <button id="langBtn">English</button>
+    </div>
+
+    <!-- 中文内容 -->
+    <div id="zhContent">
+        <h1>陈星尧</h1>
+        <div class="info-grid">
+            <div class="info-item"><strong>🏫 学校/专业</strong><br>华东政法大学 金融系</div>
+            <div class="info-item"><strong>🔬 研究方向</strong><br>保险金融相关</div>
+            <div class="info-item"><strong>📧 邮箱</strong><br>16602161180@163.com</div>
+        </div>
+
+        <h2>个人简介</h2>
+        <p>就读于华东政法大学金融系的大二学生，擅长会计学、货币金融等科目。</p >
+
+        <h2>技能</h2>
+        <div class="skill-tags">
+            <span class="skill-tag">写作</span>
+            <span class="skill-tag">计量统计</span>
+            <span class="skill-tag">WPS 软件</span>
+        </div>
+
+        <h2>课程经历</h2>
+        <div class="education-item">
+            <strong>华东政法大学 金融系（在读）</strong> | 2024年9月 – 至今<br>
+            主修课程：会计学、货币金融学、统计学、金融学原理
+        </div>
+
+        <div class="date">最后更新日期：2026年3月26日</div>
+    </div>
+
+    <!-- 英文内容 -->
+    <div id="enContent" style="display:none;">
+        <h1>Chen Xingyao</h1>
+        <div class="info-grid">
+            <div class="info-item"><strong>🏫 University / Major</strong><br>Finance Department, East China University of Political Science and Law (ECUPL)</div>
+            <div class="info-item"><strong>🔬 Research Interest</strong><br>Insurance & Finance</div>
+            <div class="info-item"><strong>📧 Email</strong><br>16602161180@163.com</div>
+        </div>
+
+        <h2>Bio</h2>
+        <p>A sophomore majoring in Finance at East China University of Political Science and Law, proficient in subjects such as Accounting and Monetary Finance.</p >
+
+        <h2>Skills</h2>
+        <div class="skill-tags">
+            <span class="skill-tag">Academic Writing</span>
+            <span class="skill-tag">Econometrics & Statistics</span>
+            <span class="skill-tag">WPS Office</span>
+        </div>
+
+        <h2>Course Experience</h2>
+        <div class="education-item">
+            <strong>East China University of Political Science and Law, Finance Department (Undergraduate)</strong> | Sep 2024 – Present<br>
+            Relevant Courses: Accounting, Monetary Finance, Statistics, Principles of Finance
+        </div>
+
+        <div class="date">Last Updated: March 26, 2026</div>
+    </div>
+</div>
+
+<script>
+    const zhDiv = document.getElementById('zhContent');
+    const enDiv = document.getElementById('enContent');
+    const langBtn = document.getElementById('langBtn');
+    let currentLang = 'zh';
+
+    function switchLanguage(lang) {
+        if (lang === 'zh') {
+            zhDiv.style.display = 'block';
+            enDiv.style.display = 'none';
+            langBtn.textContent = 'English';
+            currentLang = 'zh';
+        } else {
+            zhDiv.style.display = 'none';
+            enDiv.style.display = 'block';
+            langBtn.textContent = '中文';
+            currentLang = 'en';
+        }
+    }
+
+    langBtn.addEventListener('click', () => {
+        if (currentLang === 'zh') {
+            switchLanguage('en');
+        } else {
+            switchLanguage('zh');
+        }
+    });
+
+    switchLanguage('zh');
+</script>
+</body>
+</html>
